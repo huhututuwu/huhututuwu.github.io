@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content=#58b77a>
-  <title>小唐同学的blog</title>
+  <title>golang for leetcode | 小唐同学的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="">
   <meta name="keywords" content="">
@@ -63,16 +63,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 <meta name="generator" content="Hexo 5.4.1"></head>
 <body>
-<div id="page">
+<div class="single">
 
+<div id="page">
 <div class="header">
-  <div id="lx-aside" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/cover.min.jpeg)">
+  <div id="lx-aside" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/post_cover.min.jpeg)" data-stellar-background-ratio="0.5">
     <div class="overlay">
       
-      <div class="featured">
+      <div class="page-title">
         <div class="avatar"><a href="/"><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/avatar.min.jpeg" alt=""></a></div>
-        <span></span>
-        <h1>小唐同学的blog</h1>
+        <span>2022-03-30</span>
+        <h2>golang for l...</h2>
         
         
       </div>
@@ -81,12 +82,9 @@
 </div>
 <div id="lx-main-content">
   <div class="lx-post">
-
-  <div class="lx-entry padding">
-    <div>
-      <h2 class="title"><a href="/2022/03/30/golang%20for%20leetcode/">golang for leetcode</a></h2>
-      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2022-03-30</span>
-      <p><p>回文数</p>
+    <div class="lx-entry padding">
+      <div>
+        <p>回文数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">func isPalindrome(x int) bool &#123;</span><br><span class="line">	a := x</span><br><span class="line">	var z bool</span><br><span class="line">	var y=0</span><br><span class="line">	var i string =fmt.Sprintf(&quot;%d&quot;, x)</span><br><span class="line">	testarr :=make([]int,len(i)+1,len(i)+1)</span><br><span class="line">	testarr1 :=make([]int,len(i)+1,len(i)+1)</span><br><span class="line">	if x&gt;0&#123;</span><br><span class="line">		for j:=len(i);j&gt;0;j--&#123;</span><br><span class="line">			testarr[j]=x%10</span><br><span class="line">			x=x/10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		for j:=len(i);j&gt;0;j--&#123;</span><br><span class="line">			testarr[j-1]=x%10</span><br><span class="line">			x=x/10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if x&gt;0&#123;</span><br><span class="line">		testarr[0]=1</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		testarr[0]=0</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(testarr)</span><br><span class="line">	for j:=1;j&lt;len(testarr);j++&#123;</span><br><span class="line">		testarr1[j]=testarr[len(testarr)-j]</span><br><span class="line">	&#125;</span><br><span class="line">	testarr1[0]=testarr[0]</span><br><span class="line">	fmt.Println(testarr1)</span><br><span class="line">	for j:=len(testarr1)-1;j&gt;0;j--&#123;</span><br><span class="line">		if j==len(testarr1)-1&#123;</span><br><span class="line">			y=y+testarr1[j]</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			y=y+testarr1[j]*int(math.Pow10(len(testarr1)-j-1))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if x&lt;0&#123;</span><br><span class="line">		y=-y</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(&quot;y=&quot;,y)</span><br><span class="line">	if a == y &amp;&amp; a&gt;0&#123;</span><br><span class="line">		z = true</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		z = false</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(z)</span><br><span class="line">	return z</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>最长公共前缀</p>
@@ -111,45 +109,41 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">func removeDuplicates(nums []int) int &#123;</span><br><span class="line">   if len(nums)&gt;1&#123;</span><br><span class="line">   a:=nums[len(nums)-1]</span><br><span class="line">   b:=0</span><br><span class="line">   for i:=1;nums[i] &lt;= a &amp;&amp; i &lt; len(nums) - 1;i++ &#123;</span><br><span class="line">         for j := 1;nums[j] &lt;= a &amp;&amp; j &lt; len(nums) - 1; j++ &#123;</span><br><span class="line">            if nums[j] &lt;= nums[j-1] &#123;</span><br><span class="line">               nums[j] = nums[j] + nums[j+1]</span><br><span class="line">               nums[j+1] = nums[j] - nums[j+1]</span><br><span class="line">               nums[j] = nums[j] - nums[j+1]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   A:</span><br><span class="line">   for i:=0;i&lt;len(nums);i++&#123;</span><br><span class="line">      if nums[i]==a&#123;</span><br><span class="line">         b = i</span><br><span class="line">         break A</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">      return b+1</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return len(nums)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>数组元素积的符号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func arraySign(nums []int) int &#123;</span><br><span class="line">   var a = 0</span><br><span class="line">   A:</span><br><span class="line">   for i:=0;i&lt;len(nums);i++&#123;</span><br><span class="line">      if nums[i]==0&#123;</span><br><span class="line">         return 0</span><br><span class="line">         break A</span><br><span class="line">      &#125;else if nums[i]&lt;0&#123;</span><br><span class="line">         a=a+1</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   if a%2==1&#123;</span><br><span class="line">      return -1</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return 1</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-      <div class="post-button"><a class="btn" href="/2022/03/30/golang%20for%20leetcode/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>阅读更多</a></div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func arraySign(nums []int) int &#123;</span><br><span class="line">   var a = 0</span><br><span class="line">   A:</span><br><span class="line">   for i:=0;i&lt;len(nums);i++&#123;</span><br><span class="line">      if nums[i]==0&#123;</span><br><span class="line">         return 0</span><br><span class="line">         break A</span><br><span class="line">      &#125;else if nums[i]&lt;0&#123;</span><br><span class="line">         a=a+1</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   if a%2==1&#123;</span><br><span class="line">      return -1</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return 1</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
     </div>
   </div>
-  <div class="lx-entry padding">
-    <div>
-      <h2 class="title"><a href="/2022/03/26/%E6%90%AD%E5%BB%BAv2ray/">搭建v2ray</a></h2>
-      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2022-03-26</span>
-      <p><p>1.准备工作：vps、xshell</p>
-<p>2.安装命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://multi.netlify.app/v2ray.sh) --zh</span><br></pre></td></tr></table></figure>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-l.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-r.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2022/03/26/%E6%90%AD%E5%BB%BAv2ray/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>搭建v2ray</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
 
-<p>3.升级命令(保留配置文件更新)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://multi.netlify.app/v2ray.sh) -k</span><br></pre></td></tr></table></figure>
-
-<p>4.卸载命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://multi.netlify.app/v2ray.sh) --remove</span><br></pre></td></tr></table></figure>
-
-<p>注：CentOS系统安装curl命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y curl</span><br></pre></td></tr></table></figure>
-
-<p>Debian/Ubuntu系统安装curl命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y curl</span><br></pre></td></tr></table></figure>
-
-<p>5.安装完成后会默认自动配置并提供链接（以Ubuntu为例）</p>
-<p><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/image-2022032618234630.png" alt="image-2022032618234630"></p>
-<p>6.输入v2ray进入控制台，选择3修改配置</p>
-<p><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/image-20220326182558845.png" alt="image-20220326182558845"></p>
-<p>7.输入5选择传输协议，输入22，选择vless+tcp</p>
-<p><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/image-20220326182918970.png" alt="image-20220326182918970"></p>
-<p>8.其余选项可自行配置</p>
-<p>9.配置谷歌加速服务</p>
-</p>
-      <div class="post-button"><a class="btn" href="/2022/03/26/%E6%90%AD%E5%BB%BAv2ray/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>阅读更多</a></div>
-    </div>
-  </div>
-
-
-
+</div>
 
 <footer>
   <div>
@@ -157,8 +151,6 @@
   </div>
 </footer>
 
-  </div>
-</div>
 </div>
 
 <button class="hamburger hamburger--arrow-r" type="button" title="menu">
