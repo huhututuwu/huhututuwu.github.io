@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>Ubuntu引导修复（修改efi分区并重建引导） | 小唐同学的blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.4.3',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/css/main.min.css">
+  
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.jside.menu.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div class="header">
+  <div id="lx-aside" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/post_cover.min.jpeg)" data-stellar-background-ratio="0.5">
+    <div class="overlay">
+      
+      <div class="page-title">
+        <div class="avatar"><a href="/"><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/avatar.min.jpeg" alt=""></a></div>
+        <span>2022-05-02</span>
+        <h2>Ubuntu引导修复（修...</h2>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>我电脑上本地硬盘安装了win11，Ubuntu是安装在移动硬盘里（建议安装在固态移动硬盘，否则系统会间歇性卡顿），但安装Ubuntu时，即使选择了启动分区为移动硬盘的efi分区，安装完成后Ubuntu的引导依旧会建立在笔记本硬盘的efi分区里<!--应该是Ubuntu优化问题-->；此处导致的现象为：不管有没有插移动硬盘，电脑bios中的boot始终存在Ubuntu引导，<del>强迫症表示不能忍</del>。</p>
+<p>安装完成后，因为某些不可告人的原因，我重建了win11的引导，导致Ubuntu的引导丢失，<del>移动硬盘变砖</del>，遂通宵上网查找修复Ubuntu引导的方法，然后便有了此文，仅记录修复引导的方法。</p>
+<p>1.需要准备一个Ubuntu的live系统，Ubuntu20以上的版本可以烧录镜像到u盘，进入u盘的安装步骤后第一步选择试用，进入试用版Ubuntu。（Ubuntu20以前的版本未试）</p>
+<p>2.打开终端，获取root权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+<p>3.查看本机硬盘和分区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>4.挂载Ubuntu系统分区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount Ubuntu系统分区 /mnt</span><br><span class="line">例：mount /dev/sdb2 /mnt</span><br></pre></td></tr></table></figure>
+
+<p>5.挂载Ubuntu所在硬盘的eif分区（看个人喜好，假如喜欢把Ubuntu引导和windows放一起，就挂载window的efi）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount EFI分区 /mnt/boot/efi</span><br><span class="line">例：mount /dev/sdb1 /mnt/boot/efi</span><br></pre></td></tr></table></figure>
+
+<p>6.我也不知道这句啥意思，但是很重要，不需要修改，直接复制执行完事</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done</span><br></pre></td></tr></table></figure>
+
+<p>7.改变根目录为挂载的Ubuntu目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chroot /mnt</span><br></pre></td></tr></table></figure>
+
+<p>8.重建引导到Ubuntu所在盘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install Ubuntu所在硬盘</span><br><span class="line">例：grub-install /dev/sdb2</span><br></pre></td></tr></table></figure>
+
+<p>9.更新引导</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-grub</span><br></pre></td></tr></table></figure>
+
+<p>10.重启，此时可以在bios中找到新的Ubuntu引导，选择进入系统</p>
+<p>11.到这是不是以为一切都结束了，No，假如，假如，假如，情况和我一样，原efi分区和现在的eif分区不一致。会出现引导成功后无法进入系统的情况。开机提示 you are in emergency mode，然后无法进入图形界面。</p>
+<p>解决方案，重新进入Ubuntu试用版系统（第10步重启进Ubuntu不能省），可以直接用图形界面挂载Ubuntu所在分区，打开文件，路径为/var/log/boot.log，找到带有uuid的一行:Starting File System CHeck on /dev/disk/by-uuid/5E69-ER90，然后记住5E69ER90这8个字符（以自己电脑的为准，记住自己的那8个字符）</p>
+<p>12.需要准备一个pe盘，假如没有pe盘，windows下安装DiskGenius也可以，打开DiskGenius，找到你重建Ubuntu引导所在的efi分区，右键打开，修改卷序列号，修改为刚刚记住的8个字符，确定。</p>
+<p>13.重启，进入Ubuntu</p>
+<p>此方案仅适用于Ubuntu21，Ubuntu20理论上可行，再往前的版本不可知。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover next lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-l.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>没有更新的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover prev lx-cover-sm" style="background-image: url(https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/images/footer-r.min.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2022/03/30/golang%20for%20leetcode/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>golang ...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2022.<a href="/">小唐同学的blog</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button" title="menu">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button>
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/avatar.min.jpeg" alt=""/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p></p>
+          <span class="tagline">欢迎来到小唐同学的blog</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://fucloud.top" target="_blank">吴狗&#39;place</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/theme-lx@0.4.3/source/dist/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
