@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.1">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>golang for leetcode - 小唐同学’blog</title>
+
+  
+
+  
+    <meta name="description" content="回文数 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748func isPalindrome(x int) bool &amp;#123;	a :&#x3D; x	var z bool	var y&#x3D;0	var i string &#x3D;fmt.Sprintf(&quot;%d&quot;, x)	t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang for leetcode">
+<meta property="og:url" content="https://huhututu.top/2022/05/14/golang%20for%20leetcode/index.html">
+<meta property="og:site_name" content="小唐同学’blog">
+<meta property="og:description" content="回文数 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748func isPalindrome(x int) bool &amp;#123;	a :&#x3D; x	var z bool	var y&#x3D;0	var i string &#x3D;fmt.Sprintf(&quot;%d&quot;, x)	t">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-14T01:56:33.627Z">
+<meta property="article:modified_time" content="2022-05-13T23:22:39.786Z">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="小唐同学’blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://raw.githubusercontent.com/huhututuwu/picture/master/avatar.min.jpeg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">小唐同学’blog</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/friends/">友链</a><a class="nav-item" href="/about/">关于</a></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span><a class="cap-action" id="rss" title="Subscribe" href="/atom.xml"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8938"><path d="M800.966 947.251c0-404.522-320.872-732.448-716.69-732.448V62.785c477.972 0 865.44 395.987 865.44 884.466h-148.75z m-162.273 0h-148.74c0-228.98-181.628-414.598-405.678-414.598v-152.01c306.205 0 554.418 253.68 554.418 566.608z m-446.24-221.12c59.748 0 108.189 49.503 108.189 110.557 0 61.063-48.44 110.563-108.188 110.563-59.747 0-108.18-49.5-108.18-110.563 0-61.054 48.433-110.556 108.18-110.556z" p-id="8939"></path></svg></a></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/2022/05/14/%E6%90%AD%E5%BB%BAv2ray/">搭建v2ray</a></div><div class="more-item"><a class="title" href="/2022/05/14/Ubuntu%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D%EF%BC%88%E4%BF%AE%E6%94%B9efi%E5%88%86%E5%8C%BA%E5%B9%B6%E9%87%8D%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%89/">Ubuntu引导修复（修改efi分区并重建引导）</a></div><div class="more-item"><a class="title" href="/2022/05/14/golang%20for%20leetcode/">golang for leetcode</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/leetcode/">leetcode</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-05-14T01:56:33.627Z">2022-05-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>golang for leetcode</span></h1>
+<p>回文数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">func isPalindrome(x int) bool &#123;</span><br><span class="line">	a := x</span><br><span class="line">	var z bool</span><br><span class="line">	var y=0</span><br><span class="line">	var i string =fmt.Sprintf(&quot;%d&quot;, x)</span><br><span class="line">	testarr :=make([]int,len(i)+1,len(i)+1)</span><br><span class="line">	testarr1 :=make([]int,len(i)+1,len(i)+1)</span><br><span class="line">	if x&gt;0&#123;</span><br><span class="line">		for j:=len(i);j&gt;0;j--&#123;</span><br><span class="line">			testarr[j]=x%10</span><br><span class="line">			x=x/10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		for j:=len(i);j&gt;0;j--&#123;</span><br><span class="line">			testarr[j-1]=x%10</span><br><span class="line">			x=x/10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if x&gt;0&#123;</span><br><span class="line">		testarr[0]=1</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		testarr[0]=0</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(testarr)</span><br><span class="line">	for j:=1;j&lt;len(testarr);j++&#123;</span><br><span class="line">		testarr1[j]=testarr[len(testarr)-j]</span><br><span class="line">	&#125;</span><br><span class="line">	testarr1[0]=testarr[0]</span><br><span class="line">	fmt.Println(testarr1)</span><br><span class="line">	for j:=len(testarr1)-1;j&gt;0;j--&#123;</span><br><span class="line">		if j==len(testarr1)-1&#123;</span><br><span class="line">			y=y+testarr1[j]</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			y=y+testarr1[j]*int(math.Pow10(len(testarr1)-j-1))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if x&lt;0&#123;</span><br><span class="line">		y=-y</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(&quot;y=&quot;,y)</span><br><span class="line">	if a == y &amp;&amp; a&gt;0&#123;</span><br><span class="line">		z = true</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		z = false</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(z)</span><br><span class="line">	return z</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最长公共前缀</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">func longestCommonPrefix(strs []string) string &#123;</span><br><span class="line">	var a=0</span><br><span class="line">	var b=len(strs[0])</span><br><span class="line">	var c=&quot;&quot;</span><br><span class="line">	for i:=0;i&lt;len(strs);i++&#123;</span><br><span class="line">		if len(strs[i])&gt;a&#123;</span><br><span class="line">			a=len(strs[i])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for i:=0;i&lt;len(strs);i++&#123;</span><br><span class="line">		if len(strs[i])&lt;b&#123;</span><br><span class="line">			b=len(strs[i])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	A:</span><br><span class="line">	for i:=0;i&lt;len(strs);i++&#123;</span><br><span class="line">		if strs[i]==&quot;&quot;&#123;</span><br><span class="line">			return &quot;&quot;</span><br><span class="line">			break A</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	arr:=make([]string,b,b)</span><br><span class="line">	for i:=0;i&lt;b;i++&#123;</span><br><span class="line">		arr[i]= string((strs[0])[i])</span><br><span class="line">	&#125;</span><br><span class="line">	B:</span><br><span class="line">	for i:=0;i&lt;b;i++&#123;</span><br><span class="line">		for j:=0;j&lt;len(strs);j++&#123;</span><br><span class="line">			if string((strs[j])[i]) != arr[i]&#123;</span><br><span class="line">				break B</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		c=fmt.Sprintf(&quot;%s%s&quot;,c,arr[i])</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(c)</span><br><span class="line">	return c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>两数之和</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">func twoSum(nums []int, target int) []int &#123;</span><br><span class="line">	var i,j,k=0,0,0</span><br><span class="line">	var testarr = []int&#123;0,0&#125;</span><br><span class="line">TZT:</span><br><span class="line">	for i=0;i&lt;len(nums);i++&#123;</span><br><span class="line">		j= target - nums[i]</span><br><span class="line">		for k=i+1;k&lt;len(nums);k++&#123;</span><br><span class="line">			if nums[k]==j&#123;</span><br><span class="line">				break TZT</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	testarr[0]=i</span><br><span class="line">	testarr[1]=k</span><br><span class="line">	print(testarr)</span><br><span class="line">	return testarr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>罗马数字转整数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">func romanToInt(s string) int &#123;</span><br><span class="line">	arr:=string([]rune(s))</span><br><span class="line">	var result = 0</span><br><span class="line">	fmt.Println(arr)</span><br><span class="line">		if len(s)==0&#123;</span><br><span class="line">			return 0</span><br><span class="line">		&#125;else if len(s)==1&#123;</span><br><span class="line">			switch s &#123;</span><br><span class="line">			case &quot;I&quot;:</span><br><span class="line">				result=1</span><br><span class="line">			case &quot;V&quot;:</span><br><span class="line">				result=5</span><br><span class="line">			case &quot;X&quot;:</span><br><span class="line">				result=10</span><br><span class="line">			case &quot;L&quot;:</span><br><span class="line">				result=50</span><br><span class="line">			case &quot;C&quot;:</span><br><span class="line">				result=100</span><br><span class="line">			case &quot;D&quot;:</span><br><span class="line">				result=500</span><br><span class="line">			case &quot;M&quot;:</span><br><span class="line">				result=1000</span><br><span class="line">			&#125;</span><br><span class="line">			return result</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			var a string</span><br><span class="line">			var b string</span><br><span class="line">			var num1,num2=0,0</span><br><span class="line">			for i:=0;i&lt;len(s);&#123;</span><br><span class="line">				a= string(arr[i])</span><br><span class="line">				if i ==len(s)-1&#123;</span><br><span class="line">					b= &quot;&quot;</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					b= string(arr[i+1])</span><br><span class="line">				&#125;</span><br><span class="line">				switch a &#123;</span><br><span class="line">				case &quot;I&quot;:</span><br><span class="line">					num1=1</span><br><span class="line">				case &quot;V&quot;:</span><br><span class="line">					num1=5</span><br><span class="line">				case &quot;X&quot;:</span><br><span class="line">					num1=10</span><br><span class="line">				case &quot;L&quot;:</span><br><span class="line">					num1=50</span><br><span class="line">				case &quot;C&quot;:</span><br><span class="line">					num1=100</span><br><span class="line">				case &quot;D&quot;:</span><br><span class="line">					num1=500</span><br><span class="line">				case &quot;M&quot;:</span><br><span class="line">					num1=1000</span><br><span class="line">				&#125;</span><br><span class="line">				switch b &#123;</span><br><span class="line">				case &quot;I&quot;:</span><br><span class="line">					num2=1</span><br><span class="line">				case &quot;V&quot;:</span><br><span class="line">					num2=5</span><br><span class="line">				case &quot;X&quot;:</span><br><span class="line">					num2=10</span><br><span class="line">				case &quot;L&quot;:</span><br><span class="line">					num2=50</span><br><span class="line">				case &quot;C&quot;:</span><br><span class="line">					num2=100</span><br><span class="line">				case &quot;D&quot;:</span><br><span class="line">					num2=500</span><br><span class="line">				case &quot;M&quot;:</span><br><span class="line">					num2=1000</span><br><span class="line">				case &quot;&quot;:</span><br><span class="line">					num2=0</span><br><span class="line">				&#125;</span><br><span class="line">				if num1&lt;num2&#123;</span><br><span class="line">					result=result+num2-num1</span><br><span class="line">					i=i+2</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					result=result+num1</span><br><span class="line">					i+=1</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>整数反转</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">func reverse(x int) int &#123;</span><br><span class="line">	var y=0</span><br><span class="line">	var i string =fmt.Sprintf(&quot;%d&quot;, x)</span><br><span class="line">	testarr :=make([]int,len(i)+1,len(i)+1)</span><br><span class="line">	testarr1 :=make([]int,len(i)+1,len(i)+1)</span><br><span class="line">	if x&gt;0&#123;</span><br><span class="line">		for j:=len(i);j&gt;0;j--&#123;</span><br><span class="line">			testarr[j]=x%10</span><br><span class="line">			x=x/10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		for j:=len(i);j&gt;0;j--&#123;</span><br><span class="line">			testarr[j-1]=x%10</span><br><span class="line">			x=x/10</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if x&gt;0&#123;</span><br><span class="line">		testarr[0]=1</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		testarr[0]=0</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(testarr)</span><br><span class="line">	for j:=1;j&lt;len(testarr);j++&#123;</span><br><span class="line">		testarr1[j]=testarr[len(testarr)-j]</span><br><span class="line">	&#125;</span><br><span class="line">	testarr1[0]=testarr[0]</span><br><span class="line">	fmt.Println(testarr1)</span><br><span class="line">	for j:=len(testarr1)-1;j&gt;0;j--&#123;</span><br><span class="line">		if j==len(testarr1)-1&#123;</span><br><span class="line">			y=y+testarr1[j]</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			y=y+testarr1[j]*int(math.Pow10(len(testarr1)-j-1))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if x&lt;0&#123;</span><br><span class="line">		y=-y</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(y)</span><br><span class="line">	fmt.Println(int(math.Pow(2,31)))</span><br><span class="line">	if y&gt;=-int(math.Pow(2,31))&amp;&amp;y&lt;=int(math.Pow(2,31))-1&amp;&amp;x&gt;=-int(math.Pow(2,31))&amp;&amp;x&lt;=int(math.Pow(2,31))-1&#123;</span><br><span class="line">		return y</span><br><span class="line">	&#125; else &#123;</span><br><span class="line">		return 0</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>合并有序数组，求中位数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">func findMedianSortedArrays(nums1 []int, nums2 []int) float64 &#123;</span><br><span class="line">   testarr :=make([]int,len(nums1)+len(nums2),len(nums1)+len(nums2))</span><br><span class="line">   if len(nums1)==0&#123;</span><br><span class="line">      testarr=nums2</span><br><span class="line">   &#125;else if len(nums2)==0&#123;</span><br><span class="line">      testarr=nums1</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      for i:=0;i&lt;len(testarr);i++&#123;</span><br><span class="line">         if i&lt;len(nums1)&#123;</span><br><span class="line">            testarr[i]=nums1[i]</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">            testarr[i]=nums2[i-len(nums1)]</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   testarr=quickSort(testarr)</span><br><span class="line">   x:=len(testarr)/2</span><br><span class="line">   if len(testarr)%2==1&#123;</span><br><span class="line">      return float64(testarr[x])</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return float64((float64(testarr[x]) + float64(testarr[x-1])) / 2)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">func quickSort(s []int) []int &#123;</span><br><span class="line">   if len(s) &lt; 2 &#123;</span><br><span class="line">      return  s</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   v := s[0]</span><br><span class="line">   var left, right []int</span><br><span class="line">   for _, e := range s[1:] &#123;</span><br><span class="line">      if e &lt;= v &#123;</span><br><span class="line">         left = append(left, e)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">         right = append(right, e)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   // 实现了“quickSort(left) + v + quickSort(right)”的操作</span><br><span class="line">   return     append(append(quickSort(left), v), quickSort(right)...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>替换所有的问号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">func modifyString(s string) string &#123;</span><br><span class="line">   arr:=make([]string,len(s),len(s))</span><br><span class="line">   for i:=0;i&lt;len(s);i++&#123;</span><br><span class="line">      arr[i]=string(s[i])</span><br><span class="line">   &#125;</span><br><span class="line">   if len(s)==1&#123;</span><br><span class="line">      if s==&quot;?&quot;&#123;</span><br><span class="line">         return &quot;a&quot;</span><br><span class="line">      &#125;else &#123;</span><br><span class="line">         return s</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">   for i:=0;i&lt;len(arr);i++&#123;</span><br><span class="line">      if i==0 &amp;&amp; arr[i]==&quot;?&quot;&#123;</span><br><span class="line">         if arr[i+1]==&quot;a&quot; &#123;</span><br><span class="line">            arr[i]=&quot;b&quot;</span><br><span class="line">         &#125;else &#123;</span><br><span class="line">            arr[i]= &quot;a&quot;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;else if arr[i]==&quot;?&quot;&amp;&amp;i==len(s)-1&#123;</span><br><span class="line">         if arr[i-1]==&quot;a&quot; &#123;</span><br><span class="line">            arr[i]=&quot;b&quot;</span><br><span class="line">         &#125;else &#123;</span><br><span class="line">            arr[i]=&quot;a&quot;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;else if arr[i]==&quot;?&quot;&amp;&amp;!(i==0)&amp;&amp;!(i==len(s)-1)&#123;</span><br><span class="line">         if arr[i-1]==&quot;a&quot;&#123;</span><br><span class="line">            if arr[i+1]==&quot;b&quot; &#123;</span><br><span class="line">               arr[i]=&quot;c&quot;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">               arr[i]=&quot;b&quot;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;else if arr[i+1]==&quot;a&quot; &#123;</span><br><span class="line">            if arr[i-1]==&quot;b&quot; &#123;</span><br><span class="line">               arr[i]=&quot;c&quot;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">               arr[i]=&quot;b&quot;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;else if !(arr[i+1]==&quot;a&quot;)&amp;&amp;!(arr[i-1]==&quot;a&quot;) &#123;</span><br><span class="line">            arr[i]=&quot;a&quot;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">   a:=&quot;&quot;</span><br><span class="line">   for i:=0;i&lt;len(arr);i++&#123;</span><br><span class="line">      a+=arr[i]</span><br><span class="line">   &#125;</span><br><span class="line">   return a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>删除有序数组中的重复项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">func removeDuplicates(nums []int) int &#123;</span><br><span class="line">   if len(nums)&gt;1&#123;</span><br><span class="line">   a:=nums[len(nums)-1]</span><br><span class="line">   b:=0</span><br><span class="line">   for i:=1;nums[i] &lt;= a &amp;&amp; i &lt; len(nums) - 1;i++ &#123;</span><br><span class="line">         for j := 1;nums[j] &lt;= a &amp;&amp; j &lt; len(nums) - 1; j++ &#123;</span><br><span class="line">            if nums[j] &lt;= nums[j-1] &#123;</span><br><span class="line">               nums[j] = nums[j] + nums[j+1]</span><br><span class="line">               nums[j+1] = nums[j] - nums[j+1]</span><br><span class="line">               nums[j] = nums[j] - nums[j+1]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   A:</span><br><span class="line">   for i:=0;i&lt;len(nums);i++&#123;</span><br><span class="line">      if nums[i]==a&#123;</span><br><span class="line">         b = i</span><br><span class="line">         break A</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">      return b+1</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return len(nums)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数组元素积的符号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func arraySign(nums []int) int &#123;</span><br><span class="line">   var a = 0</span><br><span class="line">   A:</span><br><span class="line">   for i:=0;i&lt;len(nums);i++&#123;</span><br><span class="line">      if nums[i]==0&#123;</span><br><span class="line">         return 0</span><br><span class="line">         break A</span><br><span class="line">      &#125;else if nums[i]&lt;0&#123;</span><br><span class="line">         a=a+1</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   if a%2==1&#123;</span><br><span class="line">      return -1</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return 1</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/05/14/%E6%90%AD%E5%BB%BAv2ray/">搭建v2ray<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/05/14/Ubuntu%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D%EF%BC%88%E4%BF%AE%E6%94%B9efi%E5%88%86%E5%8C%BA%E5%B9%B6%E9%87%8D%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%89/">Ubuntu引导修复（修改efi分区并重建引导）<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://huhututu.top/">@null</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
