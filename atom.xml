@@ -58,10 +58,10 @@
   
   <entry>
     <title>搭建v2ray</title>
-    <link href="https://huhututu.top/2022/05/14/%E6%90%AD%E5%BB%BAv2ray/"/>
-    <id>https://huhututu.top/2022/05/14/%E6%90%AD%E5%BB%BAv2ray/</id>
-    <published>2022-05-14T01:56:33.627Z</published>
-    <updated>2022-05-14T01:22:05.574Z</updated>
+    <link href="https://huhututu.top/2021/05/14/%E6%90%AD%E5%BB%BAv2ray/"/>
+    <id>https://huhututu.top/2021/05/14/%E6%90%AD%E5%BB%BAv2ray/</id>
+    <published>2021-05-14T03:03:51.012Z</published>
+    <updated>2021-05-14T03:03:51.012Z</updated>
     
     <content type="html"><![CDATA[<p>1.准备工作：vps、xshell</p><p>2.安装命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://multi.netlify.app/v2ray.sh) --zh</span><br></pre></td></tr></table></figure><p>3.升级命令(保留配置文件更新)：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://multi.netlify.app/v2ray.sh) -k</span><br></pre></td></tr></table></figure><p>4.卸载命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://multi.netlify.app/v2ray.sh) --remove</span><br></pre></td></tr></table></figure><p>注：CentOS系统安装curl命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y curl</span><br></pre></td></tr></table></figure><p>Debian/Ubuntu系统安装curl命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y curl</span><br></pre></td></tr></table></figure><p>5.安装完成后会默认自动配置并提供链接（以Ubuntu为例）</p><p><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/image-2022032618234630.png" alt="image-2022032618234630"></p><p>6.输入v2ray进入控制台，选择3修改配置</p><p><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/image-20220326182558845.png" alt="image-20220326182558845"></p><p>7.输入5选择传输协议，输入22，选择vless+tcp</p><p><img src="https://raw.githubusercontent.com/huhututuwu/picture/master/image-20220326182918970.png" alt="image-20220326182918970"></p><p>8.其余选项可自行配置</p><p>9.配置谷歌加速服务</p>]]></content>
     
