@@ -107,7 +107,7 @@
 </div>
 
   <div class="post-list post"><a class="post-card post " href="/2022/05/14/Ubuntu%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D%EF%BC%88%E4%BF%AE%E6%94%B9efi%E5%88%86%E5%8C%BA%E5%B9%B6%E9%87%8D%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%89/">
-<article class="md"><h2 class="post-title">Ubuntu引导修复（修改efi分区并重建引导）</h2><div class="excerpt"><p>我电脑上本地硬盘安装了win11，Ubuntu是安装在移动硬盘里（建议安装在固态移动硬盘，否则系统会间歇性卡顿），但安装Ubuntu时，即使选择了启动分区为移动硬盘的efi分区，安装完成后Ubuntu的引导依旧会建立在笔记本硬盘的efi分区里；此处导致的现象为：不管有没有插移动硬盘，电脑bios中的boot始终存在Ubuntu引导，强迫症表示不能忍。
+<article class="md"><h2 class="post-title">Ubuntu引导修复（修改efi分区并重建引导）</h2><div class="excerpt heti"><p>我电脑上本地硬盘安装了win11，Ubuntu是安装在移动硬盘里（建议安装在固态移动硬盘，否则系统会间歇性卡顿），但安装Ubuntu时，即使选择了启动分区为移动硬盘的efi分区，安装完成后Ubuntu的引导依旧会建立在笔记本硬盘的efi分区里；此处导致的现象为：不管有没有插移动硬盘，电脑bios中的boot始终存在Ubuntu引导，强迫症表示不能忍。
 安装完成后，因为某些不可告人的原因，我重...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2022-05-14T01:56:33.627Z">2022-05-14</time></span><span class="cap breadcrumb">ubuntu</span></div></article>
 </a></div>
   
@@ -119,6 +119,7 @@
       
 <footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 <p>本站由 <a href="https://huhututu.top/">@null</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+<p>小唐同学</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
@@ -256,8 +257,8 @@
   if ('true' == 'true') {
     stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
   }
-  if ('false' == 'true') {
-    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  if ('true' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":true,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
   }
 </script>
 
